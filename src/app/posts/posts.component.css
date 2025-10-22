@@ -26,8 +26,3 @@
   border-bottom: 1px solid #ddd;
   font-size: 15px;
 }
-
-.post-table tr:hover {
-  background-color: #e8f5e9;
-  transition: background-color 0.2s ease;
-}

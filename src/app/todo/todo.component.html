@@ -1,0 +1,12 @@
+<div class="posts-container">
+  <h2 class="posts-title">{{ userName() }}-ის Todos</h2>
+
+  <div class="posts-grid">
+    @for (todo of userTodo(); track todo.id) {
+    <div class="post-card" [ngClass]="{ completed: todo.completed }">
+      <h3>{{ todo.title }}</h3>
+      <p>{{ todo.completed }}</p>
+    </div>
+    }
+  </div>
+</div>

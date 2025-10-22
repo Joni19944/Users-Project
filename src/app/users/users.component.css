@@ -26,10 +26,6 @@
   font-size: 15px;
 }
 
-.user-table tr:hover {
-  background-color: #f1f8e9;
-  transition: background-color 0.2s ease;
-}
 .details-link {
   display: inline-block;
   color: #2e7d32;
