@@ -1,0 +1,18 @@
+<div class="posts-container">
+  <h2 class="posts-title">{{ userName() }}-ის პოსტები</h2>
+
+  <div class="posts-grid">
+    @for (post of userPosts(); track post.id) {
+    <div class="post-card">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+      <a
+        class="details-link"
+        [routerLink]="['/posts', post.id]"
+        (click)="onContentToService(post.title, post.body)"
+        >დეტალურად</a
+      >
+    </div>
+    }
+  </div>
+</div>

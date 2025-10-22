@@ -1,0 +1,63 @@
+.post-details {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title style */
+.post-details h1 {
+  font-size: 2rem; /* დაახლოებით 32px */
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Body text */
+.post-details p {
+  font-size: 1.05rem; /* დაახლოებით 17px */
+  color: #333;
+  line-height: 1.7;
+  text-align: justify;
+  word-wrap: break-word;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .post-details {
+    width: 80%;
+    padding: 16px;
+  }
+
+  .post-details h1 {
+    font-size: 1.6rem;
+  }
+
+  .post-details p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .post-details {
+    width: 90%;
+    margin: 20px auto;
+    padding: 14px;
+  }
+
+  .post-details h1 {
+    font-size: 1.4rem;
+  }
+
+  .post-details p {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+}

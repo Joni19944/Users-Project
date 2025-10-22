@@ -1,0 +1,18 @@
+<div class="post-table-container">
+  <table class="post-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>პოსტის სათაური</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (post of posts(); track $index) {
+      <tr>
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

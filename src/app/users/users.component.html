@@ -1,0 +1,30 @@
+<div class="user-table-container">
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>სახელი</th>
+        <th>გვარი</th>
+        <th>ელ.ფოსტა</th>
+        <th>ნომერი</th>
+        <th>კომპანიის დასახელება</th>
+        <th>პოსტები</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users(); track $index) {
+      <tr>
+        <td>{{ user.name.split(" ")[0] }}</td>
+        <td>{{ user.name.split(" ")[1] }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.company.name }}</td>
+        <td>
+          <a class="details-link" [routerLink]="['/users', user.id, user.name]"
+            >დეტალურად</a
+          >
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
