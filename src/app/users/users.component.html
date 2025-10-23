@@ -1,4 +1,11 @@
 <div class="user-table-container">
+  <input
+    type="text"
+    placeholder="მოძებნე მომხმარებელი..."
+    (input)="updateSearch($event)"
+    class="search-input"
+  />
+
   <table class="user-table">
     <thead>
       <tr>
@@ -12,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (user of users(); track $index) {
+      @for (user of filteredUsers(); track $index) {
       <tr>
         <td>{{ user.name.split(" ")[0] }}</td>
         <td>{{ user.name.split(" ")[1] }}</td>
