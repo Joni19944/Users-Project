@@ -2,14 +2,14 @@
   <table class="post-table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>მომხმარებელი</th>
         <th>პოსტის სათაური</th>
       </tr>
     </thead>
     <tbody>
       @for (post of posts(); track $index) {
       <tr>
-        <td>{{ post.id }}</td>
+        <td>{{ post.userName }}</td>
         <td>{{ post.title }}</td>
       </tr>
       }

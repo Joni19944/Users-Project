@@ -1,7 +1,7 @@
-import { DatePipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FetchService } from '../services/fetch.service';
 import { Post } from '../types/posts';
+import { combineLatest, map } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -12,10 +12,26 @@ import { Post } from '../types/posts';
 })
 export class PostsComponent {
   fetchService = inject(FetchService);
-  posts = signal<Post[]>([]);
+  posts = signal<(Post & { userName?: string })[]>([]);
+
   ngOnInit(): void {
-    this.fetchService
-      .loadPosts()
-      .subscribe({ next: (val) => this.posts.set(val) });
+    combineLatest([
+      this.fetchService.loadUsers(),
+      this.fetchService.loadPosts(),
+    ])
+      .pipe(
+        map(([users, posts]) =>
+          posts.map((post) => {
+            const matchedUser = users.find((u) => u.id === post.userId);
+            return {
+              ...post,
+              userName: matchedUser ? matchedUser.name : 'უცნობი მომხმარებელი',
+            };
+          })
+        )
+      )
+      .subscribe({
+        next: (combinedPosts) => this.posts.set(combinedPosts),
+      });
   }
 }

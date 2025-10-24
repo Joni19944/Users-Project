@@ -8,9 +8,8 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Title style */
 .post-details h1 {
-  font-size: 2rem; /* დაახლოებით 32px */
+  font-size: 2rem;
   font-weight: 600;
   color: #2e7d32;
   margin-bottom: 16px;
@@ -19,9 +18,8 @@
   word-break: break-word;
 }
 
-/* Body text */
 .post-details p {
-  font-size: 1.05rem; /* დაახლოებით 17px */
+  font-size: 1.05rem;
   color: #333;
   line-height: 1.7;
   text-align: justify;
@@ -29,7 +27,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   .post-details {
     width: 80%;
