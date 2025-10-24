@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,12 +7,21 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [DatePipe, RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
-  today!: Date;
+export class HeaderComponent implements OnInit, OnDestroy {
+  today = signal<Date>(new Date());
+  private timerId!: ReturnType<typeof setInterval>;
 
   ngOnInit() {
-    this.today = new Date();
+    this.timerId = setInterval(() => {
+      this.today.set(new Date());
+    }, 30000);
+
+    this.today.set(new Date());
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.timerId);
   }
 }
